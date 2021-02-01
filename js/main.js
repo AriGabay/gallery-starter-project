@@ -1,1 +1,4 @@
-console.log('Starting up');
+// console.log('Starting up');
+"use strict"
+
+
