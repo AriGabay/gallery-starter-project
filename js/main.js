@@ -5,18 +5,19 @@ function init() {
   renderProjects();
   renderModals();
 }
+jQuery(document).ready(init);
 
 function renderProjects() {
   var strHtmls = gProjects
     .map(function (project) {
-      return `<div class="col-md-3 col-sm-3 portfolio-item">
+      return `<div class="col-md-6 col-sm-12 portfolio-item">
         <a class="portfolio-link" data-toggle="modal" href="#${project.id}">
           <div class="portfolio-hover">
             <div class="portfolio-hover-content">
               <i class="fa fa-plus fa-3x"></i>
             </div>
           </div>
-          <img class="img-fluid" src="${project.img}" alt="">
+          <img class="img-fluid image-thumbnail" src="${project.img}" alt="">
         </a>
         <div class="portfolio-caption">
           <h4>${project.name}</h4>
@@ -63,6 +64,16 @@ function renderModals() {
       </div>
      </div>
     </div>`;
-    }).join('');
+    })
+    .join('');
   $('.modals-container').html(strHtmls);
+}
+
+function getContact() {
+  var $elSubject = $('.name-input').val();
+  var $elMail = $('.email-input').val();
+  var $elMsg = $('.message-input').val();
+  var yourMail = `${$elMsg}%20My Mail is: ${$elMail}`
+  var newUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=arigabay19988@gmail.com&su=${$elSubject}&body=${$elMsg}%20My Mail is: ${$elMail}`;
+  window.location.href=newUrl
 }
