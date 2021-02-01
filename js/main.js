@@ -8,7 +8,8 @@ function init() {
 jQuery(document).ready(init);
 
 function renderProjects() {
-  var strHtmls = gProjects
+    var projects=getGProjects()
+  var strHtmls = projects
     .map(function (project) {
       return `<div class="col-md-6 col-sm-12 portfolio-item">
         <a class="portfolio-link" data-toggle="modal" href="#${project.id}">
@@ -50,7 +51,7 @@ function renderModals() {
                 <img class="img-fluid d-block mx-auto" src="${project.img}" alt="">
                 <p>${project.desc}</p>
                 <ul class="list-inline">
-                  <li>Date: January 2017</li>
+                  <li>Date: ${moment(project.publishedAt).format("DD/MM/yyyy")}</li>
                   <li>Link:<a target="_blank" href="${project.url}"> ${project.name}</a></li>
                   <li>Category: ${project.labels.join(', ')}</li>
                 </ul>
@@ -73,7 +74,11 @@ function getContact() {
   var $elSubject = $('.name-input').val();
   var $elMail = $('.email-input').val();
   var $elMsg = $('.message-input').val();
-  var yourMail = `${$elMsg}%20My Mail is: ${$elMail}`
+  var yourMail = `${$elMsg}%20My Mail is: ${$elMail}`;
   var newUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=arigabay19988@gmail.com&su=${$elSubject}&body=${$elMsg}%20My Mail is: ${$elMail}`;
-  window.location.href=newUrl
+  window.location.href = newUrl;
+}
+
+function getGProjects() {
+  return gProjects;
 }
