@@ -8,7 +8,7 @@ function init() {
 jQuery(document).ready(init);
 
 function renderProjects() {
-    var projects=getGProjects()
+  var projects = getGProjects();
   var strHtmls = projects
     .map(function (project) {
       return `<div class="col-md-6 col-sm-12 portfolio-item">
@@ -51,8 +51,10 @@ function renderModals() {
                 <img class="img-fluid d-block mx-auto" src="${project.img}" alt="">
                 <p>${project.desc}</p>
                 <ul class="list-inline">
-                  <li>Date: ${moment(project.publishedAt).format("DD/MM/yyyy")}</li>
-                  <li>Link:<a target="_blank" href="${project.url}"> ${project.name}</a></li>
+                  <li>Date: ${moment(project.publishedAt).format('DD/MM/yyyy')}</li>
+                  <li>Link: <a target="_blank" href="${
+                    project.url
+                  }" class="badge badge-warning"> ${project.name}</a></li>
                   <li>Category: ${project.labels.join(', ')}</li>
                 </ul>
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
@@ -74,9 +76,12 @@ function getContact() {
   var $elSubject = $('.name-input').val();
   var $elMail = $('.email-input').val();
   var $elMsg = $('.message-input').val();
-  var yourMail = `${$elMsg}%20My Mail is: ${$elMail}`;
-  var newUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=arigabay19988@gmail.com&su=${$elSubject}&body=${$elMsg}%20My Mail is: ${$elMail}`;
-  window.location.href = newUrl;
+  // var newUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=arigabay19988@gmail.com&su=${$elSubject}&body=${$elMsg}`;
+  // window.open(window.location.href=newUrl,'_blank')
+  window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=arigabay19988@gmail.com&su=${$elSubject}&body=${$elMsg}`);
+  $('.name-input').text = '';
+  $('.email-input').text = '';
+  $('.message-input').text = '';
 }
 
 function getGProjects() {
