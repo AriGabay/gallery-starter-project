@@ -50,7 +50,7 @@ var gProjects = [
     title: 'Responsive Blog',
     desc: 'Responsive blog adapted for mobile tablet and desktop',
     url: 'https://arigabay.github.io/Responsive/',
-    img: 'img/img_project/responsive-blog.png',
+    img: 'img/img_project/responsive-blog.jpg',
     publishedAt: moment('08/02/2021', 'DD/MM/yyyy'),
     labels: ['Blog', 'Responsive-Blog', 'For Phone Pc Tablet'],
   },
